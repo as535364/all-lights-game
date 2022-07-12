@@ -1,0 +1,61 @@
+html, body, #app {
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stage {
+  margin-top: 30px;
+}
+
+.choice {
+  transform: translateY(-25%);
+}
+
+.block_area {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+}
+
+.block {
+  border: solid 1px rgba(255, 255, 255, 0.4);
+  position: relative;
+  box-sizing: border-box;
+}
+.block.small_number {
+  opacity: 0.6;
+  color: white;
+}
+.block.small {
+  width: 60px;
+  height: 60px;
+}
+.block:after, .block:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+.block.circle:after, .block.circle:before {
+  border-radius: 50%;
+}
+.block.circle:before {
+  width: 90%;
+  height: 90%;
+  background-color: #f35;
+}
+.block.circle:after {
+  width: 60%;
+  height: 60%;
+  background-color: #222;
+}
+
+button.restart {
+  transform: translateY(-25%);
+}

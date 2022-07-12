@@ -1,0 +1,30 @@
+#app
+  .ts.fluid.container
+    br
+    h1.ts.header.center.aligned.inverted 點燈遊戲
+    .block_area(v-bind:style="{width:block_area_size, height:block_area_size}")
+          .block(v-for="(block,bid) in blocks",
+                 v-bind:class="{circle: block.type}",
+                 @click="block_click(block, bid)",
+                 v-bind:style="{width:block_size, height:block_size}")
+            .small_number {{bid+1}}
+    .stage
+      .ts.compact.horizontal.checkboxes.center.aligned.inverted
+        .ts.radio.checkbox
+          input(type="radio",name="stage",id="3x3",value=3,v-model.number="n")
+          label(for='3x3')
+            h2.ts.header.inverted.choice 3x3
+        .ts.radio.checkbox
+          input(type="radio",name="stage",id="4x4",value=4,v-model.number="n")
+          label(for='4x4') 
+            h2.ts.header.inverted.choice 4x4
+        .ts.radio.checkbox
+          input(type="radio",name="stage",id="5x5",value=5,v-model.number="n")
+          label(for='5x5') 
+            h2.ts.header.inverted.choice 5x5
+        .ts.radio.checkbox
+          input(type="radio",name="stage",id="6x6",value=6,v-model.number="n")
+          label(for='6x6') 
+            h2.ts.header.inverted.choice 6x6
+        button.ts.button.inverted.restart(@click="restart()") 重新開始
+    h1.ts.header.center.aligned.inverted.check {{check}}
